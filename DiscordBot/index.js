@@ -42,17 +42,29 @@ const helpInfo = new Discord.MessageEmbed()
 	.setTimestamp()
     .setFooter('Supplied by Wide-Bot');
 
-bot.on('ready', () =>{
+bot.on('ready', message =>{
     console.log('This bot is online');
 
+})
+
+bot.on('message', message => {
     command(bot, 'ping', message => {
         message.channel.send('Get ponged!')
     })
+
+    let args = message.content.substring(PREFIX.length).split(" ");
+
+    command(bot, 'support', message => {
+        message.author.send('Support ticket opened, please answer the questions below.')
+    })
+        if(args[1] === 'close'){
+            message.author.send('Support ticket closed.')
+    }
 })
 
 
 bot.on('message', async message => {
-    let blacklisted = ['fuck', 'dickhead', 'cunt', 'knobhead'];
+    let blacklisted = ['dickhead', 'cunt', 'knobhead'];
 
     let foundInText = false;
     for (var i in blacklisted) {
