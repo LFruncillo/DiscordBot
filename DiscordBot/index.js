@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const command = require('./command')
-const token = 'NzQ2NDQ4NjQ2OTM3MTE2Nzkz.X0AeeQ.nn1Dk2lh0uIpE8lc_HcpA5VZXv8';
+const token = '';
 const PREFIX = '!';
 const channel = bot.channels.cache.get("#710630899607273535");
 const fs = require('fs');
@@ -64,7 +64,7 @@ bot.on('message', message => {
 
 
 bot.on('message', async message => {
-    let blacklisted = ['dickhead', 'cunt', 'knobhead'];
+    let blacklisted = ['abc', 'def', 'ghi'];
 
     let foundInText = false;
     for (var i in blacklisted) {
@@ -134,9 +134,9 @@ bot.on('message', message=> {
                 console.error(e);
             })
             break;
-        case 'kick':
+        case 'play':
 
-            break;
+        break;
 
 
 
