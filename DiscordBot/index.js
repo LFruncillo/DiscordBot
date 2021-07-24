@@ -6,6 +6,7 @@ const PREFIX = '!';
 const channel = bot.channels.cache.get("#710630899607273535");
 const fs = require('fs');
 
+// Shows profile for the user who sent the command //
 const userInfo = new Discord.MessageEmbed()
 	.setColor('#8e3ab5')
 	.setTitle('Some title')
@@ -24,6 +25,7 @@ const userInfo = new Discord.MessageEmbed()
 	.setTimestamp()
     .setFooter('Supplied by Wide-Bot', 'https://i.imgur.com/wSTFkRM.png');
 
+// Help command to show all the commands you can use //
 const helpInfo = new Discord.MessageEmbed()
 	.setColor('#8e3ab5')
 	.setTitle('HELP')
@@ -42,11 +44,14 @@ const helpInfo = new Discord.MessageEmbed()
 	.setTimestamp()
     .setFooter('Supplied by Wide-Bot');
 
+
+// Sends message to console when the bot comes online //
 bot.on('ready', message =>{
     console.log('This bot is online');
 
 })
 
+// Messaging ping responds with pong (set up for testing bot response) //
 bot.on('message', message => {
     command(bot, 'ping', message => {
         message.channel.send('Get ponged!')
@@ -54,6 +59,7 @@ bot.on('message', message => {
 
     let args = message.content.substring(PREFIX.length).split(" ");
 
+    // Opens support ticket and messages user //
     command(bot, 'support', message => {
         message.author.send('Support ticket opened, please answer the questions below.')
     })
@@ -62,7 +68,7 @@ bot.on('message', message => {
     }
 })
 
-
+// Checks for blacklisted words and deletes the message //
 bot.on('message', async message => {
     let blacklisted = ['abc', 'def', 'ghi'];
 
@@ -77,6 +83,7 @@ bot.on('message', async message => {
     }
 })
 
+// A selection of commands the user can initiate, which returns a bot response //
 bot.on('message', message=> {
 
     let args = message.content.substring(PREFIX.length).split(" ");

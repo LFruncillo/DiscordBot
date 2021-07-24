@@ -1,3 +1,5 @@
+// Command requirements such as prefix and alias. //
+
 const { prefix } = require('./config.json')
 
 module.exports = (bot, aliases, callback) => {
